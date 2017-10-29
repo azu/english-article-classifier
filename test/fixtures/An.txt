@@ -75,3 +75,7 @@ yclad body
 ypsiliform junction
 yttrium atom
 U-boat
+# special word
+MTV channel
+FAQ
+SQL

@@ -9,7 +9,6 @@ D.S.M.
 DINNER
 DNR
 FACT
-FAQ
 GOD
 GSM phone
 HAL 9000
@@ -41,7 +40,6 @@ FSM
 L.E.D.
 LCD
 M.I.A.
-MTV channel
 N.C.O.
 NCO
 O.K.

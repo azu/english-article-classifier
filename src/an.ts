@@ -10,5 +10,23 @@ export const AnPatterns = [
     /^honest/i,
     /^hono/i,
     /^8$/,
-    /^11$/
+    /^11$/,
+    // special
+    "FAQ",
+    "MBA",
+    "MA",
+    "MRI",
+    "MS",
+    "MTV",
+    "SGML",
+    "SOS",
+    "SQL",
+    "SMS",
+    "XML",
+    "SUV",
+    "STD",
+    "SPF",
+    "HB",
+    "RAF",
+    "IOU"
 ];

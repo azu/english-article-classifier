@@ -12,6 +12,14 @@ export interface classifyArticleOptions {
     forceAn?: string[];
 }
 
+const testWord = (text: string, pattern: string | RegExp): boolean => {
+    if (typeof pattern === "string") {
+        return text === pattern;
+    } else {
+        return pattern.test(text);
+    }
+};
+
 export function classifyArticle(phrase: string, options?: classifyArticleOptions): ReturnClassifyArticle {
     // Getting the first word
     const match = /[\w.-]+/.exec(phrase);
@@ -52,7 +60,7 @@ export function classifyArticle(phrase: string, options?: classifyArticleOptions
     const specialAnCaseWords = AnPatterns;
     for (let i = 0; i < specialAnCaseWords.length; i++) {
         const specialAnCaseWordPattern = specialAnCaseWords[i];
-        if (specialAnCaseWordPattern.test(word)) {
+        if (testWord(word, specialAnCaseWordPattern)) {
             return {
                 type: "an",
                 reason: "Specific start of words that should be proceeded by 'an'"
@@ -78,7 +86,7 @@ export function classifyArticle(phrase: string, options?: classifyArticleOptions
     const specialACasePattern = APattern;
     for (let i = 0; i < specialACasePattern.length; i++) {
         const specialACaseWordPattern = specialACasePattern[i];
-        if (specialACaseWordPattern.test(word)) {
+        if (testWord(word, specialACaseWordPattern)) {
             return {
                 type: "a",
                 reason: "Special cases where a word that begins with a vowel should be proceeded by 'a'"
