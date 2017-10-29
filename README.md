@@ -1,4 +1,4 @@
-# english-article-classifier
+# english-article-classifier [![Build Status](https://travis-ci.org/azu/english-article-classifier.svg?branch=master)](https://travis-ci.org/azu/english-article-classifier)
 
 Classifier english article(a, an).
 
@@ -48,6 +48,8 @@ export interface classifyArticleOptions {
 export declare function classifyArticle(phrase: string, options?: classifyArticleOptions): ReturnClassifyArticle;
 ```
 
+`classifyArticle` return an object that has `type` and `reason`. 
+ 
 ### Example
 
 ```js
