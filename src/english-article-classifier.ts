@@ -1,4 +1,7 @@
 // MIT © 2017 azu
+import { AnPatterns } from "./an";
+import { APattern } from "./a";
+
 export interface ReturnClassifyArticle {
     type: "a" | "an" | "unknown";
     reason: string;
@@ -46,21 +49,10 @@ export function classifyArticle(phrase: string, options?: classifyArticleOptions
     }
     const lowerWord = word.toLowerCase();
     // Specific start of words that should be proceeded by 'an'
-    const specialAnCaseWords = [
-        /^ubuntu/,
-        /^ubersexual/,
-        /^unilluminated/,
-        /^euler/,
-        /^hour(?!i)/,
-        /^heir/,
-        /^honest/,
-        /^hono/,
-        /^8$/,
-        /^11$/
-    ];
+    const specialAnCaseWords = AnPatterns;
     for (let i = 0; i < specialAnCaseWords.length; i++) {
         const specialAnCaseWordPattern = specialAnCaseWords[i];
-        if (specialAnCaseWordPattern.test(lowerWord)) {
+        if (specialAnCaseWordPattern.test(word)) {
             return {
                 type: "an",
                 reason: "Specific start of words that should be proceeded by 'an'"
@@ -83,9 +75,10 @@ export function classifyArticle(phrase: string, options?: classifyArticleOptions
     }
 
     // Special cases where a word that begins with a vowel should be proceeded by 'a'
-    const specialACasePattern = [/^e[uw]/, /^onc?e\b/, /^uni([^nmd]|mo)/, /^u[bcfhjkqrst][aeiou]/];
-    for (let i in specialACasePattern) {
-        if (lowerWord.match(specialACasePattern[i])) {
+    const specialACasePattern = APattern;
+    for (let i = 0; i < specialACasePattern.length; i++) {
+        const specialACaseWordPattern = specialACasePattern[i];
+        if (specialACaseWordPattern.test(word)) {
             return {
                 type: "a",
                 reason: "Special cases where a word that begins with a vowel should be proceeded by 'a'"
