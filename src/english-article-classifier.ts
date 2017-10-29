@@ -6,7 +6,7 @@ export interface ReturnClassifyArticle {
 
 export function classifyArticle(phrase: string): ReturnClassifyArticle {
     // Getting the first word
-    const match = /[\w.]+/.exec(phrase);
+    const match = /[\w.-]+/.exec(phrase);
     const word = match ? match[0] : undefined;
     if (word === undefined) {
         return {
@@ -38,17 +38,6 @@ export function classifyArticle(phrase: string): ReturnClassifyArticle {
             };
         }
     }
-    // https://github.com/rossmeissl/indefinite_article/blob/master/lib/indefinite_article.rb
-    const specialACaseWords = [];
-    for (let i = 0; i < specialACaseWords.length; i++) {
-        const specialACaseWordPattern = specialAnCaseWords[i];
-        if (specialACaseWordPattern.test(lowerWord)) {
-            return {
-                type: "a",
-                reason: "Specific start of words that should be proceeded by 'a'"
-            };
-        }
-    }
     // Single letter word which should be proceeded by 'an'
     console.log(word);
     if (lowerWord.length == 1) {
@@ -63,14 +52,6 @@ export function classifyArticle(phrase: string): ReturnClassifyArticle {
                 reason: "Single letter word which should be proceeded by 'a'"
             };
         }
-    }
-
-    // Capital words which is not special case would be unknown
-    if (/^[A-Z.]$/.test(word)) {
-        return {
-            type: "unknown",
-            reason: "Capital words which is not special case would be unknown"
-        };
     }
 
     // Special cases where a word that begins with a vowel should be proceeded by 'a'
@@ -91,6 +72,13 @@ export function classifyArticle(phrase: string): ReturnClassifyArticle {
             reason: "Special capital words (UK, UN)"
         };
     } else if (word == word.toUpperCase()) {
+        // All Capital words which is not special case would be unknown
+        if (/^[A-Z.]+$/.test(word)) {
+            return {
+                type: "unknown",
+                reason: "Capital words which is not special case would be unknown"
+            };
+        }
         // start with alphabet vowel
         if ("aefhilmnorsx".indexOf(lowerWord[0]) >= 0) {
             return {

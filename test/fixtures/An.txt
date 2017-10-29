@@ -1,7 +1,6 @@
 11
 8
 Euler number
-H-Bomb
 Inspector General
 a
 agendum
@@ -75,3 +74,4 @@ yblent eye
 yclad body
 ypsiliform junction
 yttrium atom
+U-boat

@@ -21,7 +21,7 @@ G-string
 Major General
 UK citizen
 UN
-
+Governor General
 b
 bacterium
 banana
@@ -47,6 +47,8 @@ honeymoon
 hound
 houri
 house
+Hough transform
+H-Bomb
 j
 jumbo
 k
@@ -121,3 +123,8 @@ youth
 youth
 z
 zoo
+Ph.D.
+X-ray
+Y-shaped pipe
+UFO
+UNESCO representative

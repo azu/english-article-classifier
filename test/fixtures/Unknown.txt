@@ -12,31 +12,23 @@ FACT
 FAQ
 GOD
 GSM phone
-Governor General
 HAL 9000
-Hough transform
 LED
 MIASMA
 NATO country
 P.E.T. scan
 PET
-Ph.D.
 REST
 SUM
 T.N.T. bomb
 TENT
 TNT bomb
-U-boat
 U.F.O.
-UFO
-UNESCO representative
 V.I.P.
 VIPER
 XYLAPHONE
-Y-shaped pipe
 Y.Z. plane
 YMCA
-
 A.B.C
 AGE
 AI
@@ -59,7 +51,6 @@ R.S.V.P.
 RSVP
 S.O.S.
 SST
-X-ray
 X.O.
 XY chromosome
 YBLENT eye
