@@ -7,6 +7,7 @@ Based on:
 - [rigoneri/indefinite-article.js: JavaScript function that returns the indefinite articles "a" or "an" based on a given word or phrase.](https://github.com/rigoneri/indefinite-article.js)
 - [gitpan/Lingua-EN-Inflexion: Read-only release history for Lingua-EN-Inflexion](https://github.com/gitpan/Lingua-EN-Inflexion)
 - [rossmeissl/indefinite_article: Indefinite article identification for Ruby strings](https://github.com/rossmeissl/indefinite_article)
+- [wooorm/retext-indefinite-article: Check if indefinite articles (`a`, `an`) are used correctly](https://github.com/wooorm/retext-indefinite-article "wooorm/retext-indefinite-article: Check if indefinite articles (`a`, `an`) are used correctly")
 
 ## Feature
 
