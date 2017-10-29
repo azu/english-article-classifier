@@ -24,7 +24,12 @@ Use "a" before any consonant sound; use "an" before any vowel sound.
 So, We can not define `a` or `an` for a new word.
 
 We want to avoid false-positive.
+
 If you want to defined new word, please specify `option`.
+
+Or
+
+Please pull request to [a.ts](./src/a.ts) or [an.ts](./src/an.ts).
 
 ## Install
 
