@@ -11,7 +11,7 @@
     "src/"
   ],
   "name": "english-article-classifier",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Classifier english article(a, an).",
   "main": "lib/english-article-classifier.js",
   "scripts": {
