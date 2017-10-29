@@ -12,7 +12,7 @@
   ],
   "name": "english-article-classifier",
   "version": "1.0.0",
-  "description": "classifier english article(a, an). Port from Lingua::EN::Inflexion",
+  "description": "Classifier english article(a, an).",
   "main": "lib/english-article-classifier.js",
   "scripts": {
     "test": "mocha 'test/**/*.ts'",

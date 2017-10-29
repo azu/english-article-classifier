@@ -4,7 +4,12 @@ export interface ReturnClassifyArticle {
     reason: string;
 }
 
-export function classifyArticle(phrase: string): ReturnClassifyArticle {
+export interface classifyArticleOptions {
+    forceA?: string[];
+    forceAn?: string[];
+}
+
+export function classifyArticle(phrase: string, options?: classifyArticleOptions): ReturnClassifyArticle {
     // Getting the first word
     const match = /[\w.-]+/.exec(phrase);
     const word = match ? match[0] : undefined;
@@ -15,6 +20,30 @@ export function classifyArticle(phrase: string): ReturnClassifyArticle {
         };
     }
 
+    // User-defined words
+    if (options && options.forceA) {
+        for (let i = 0; i < options.forceA.length; i++) {
+            const forceA = options.forceA[i];
+            if (forceA === word) {
+                return {
+                    type: "a",
+                    reason: "User defined words that should be proceeded by 'a'"
+                };
+            }
+        }
+    }
+
+    if (options && options.forceAn) {
+        for (let i = 0; i < options.forceAn.length; i++) {
+            const forceAn = options.forceAn[i];
+            if (forceAn === word) {
+                return {
+                    type: "an",
+                    reason: "User defined words that should be proceeded by 'an'"
+                };
+            }
+        }
+    }
     const lowerWord = word.toLowerCase();
     // Specific start of words that should be proceeded by 'an'
     const specialAnCaseWords = [
@@ -39,7 +68,6 @@ export function classifyArticle(phrase: string): ReturnClassifyArticle {
         }
     }
     // Single letter word which should be proceeded by 'an'
-    console.log(word);
     if (lowerWord.length == 1) {
         if ("aefhilmnorsx".indexOf(lowerWord) >= 0) {
             return {

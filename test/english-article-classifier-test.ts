@@ -35,7 +35,6 @@ describe("english-article-classifier", () => {
         AWords.forEach(aWord => {
             it(`"${aWord}" should be "a"`, () => {
                 const result = classifyArticle(aWord);
-                console.log(aWord);
                 assert.strictEqual(result.type, "a", `${aWord}: ${result.reason}`);
             });
         });
@@ -56,6 +55,21 @@ describe("english-article-classifier", () => {
                 const result = classifyArticle(unknownWord);
                 assert.strictEqual(result.type, "unknown", `${unknownWord}: ${result.reason}`);
             });
+        });
+    });
+
+    describe("User-defined", () => {
+        it("force should be a", () => {
+            const result = classifyArticle("WERTYUIOPOKJHGFSDFGHJK", {
+                forceA: ["WERTYUIOPOKJHGFSDFGHJK"]
+            });
+            assert.strictEqual(result.type, "a", ` ${result.reason}`);
+        });
+        it("force should be an", () => {
+            const result = classifyArticle("WERTYUIOPOKJHGFSDFGHJK", {
+                forceAn: ["WERTYUIOPOKJHGFSDFGHJK"]
+            });
+            assert.strictEqual(result.type, "an", ` ${result.reason}`);
         });
     });
 });
